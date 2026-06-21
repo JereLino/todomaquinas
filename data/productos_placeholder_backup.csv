@@ -1,0 +1,38 @@
+id,nombre,categoria,precio,precio_anterior,marca,descripcion,stock,destacado,emoji,relacionados
+1,Amoladora Angular 4.5” 850W,Herramientas Eléctricas,38999,52999,Bauker,"Amoladora angular de 850W con disco de 115mm, ideal para corte y desbaste. Empuñadura lateral y protección de disco incluida.",24,1,⚙️,2;4;25
+2,Taladro Percutor 13mm 750W,Herramientas Eléctricas,45999,61999,Bauker,"Taladro percutor de 750W con mandril de 13mm, velocidad variable y reversa. Función percutor para hormigón.",31,1,🔩,3;25;24
+3,Atornillador Inalámbrico 12V,Herramientas Eléctricas,52999,69999,Bauker,"Atornillador inalámbrico 12V con 2 baterías de litio, cargador rápido y 20 niveles de torque.",18,1,🪛,2;17;23
+4,Sierra Circular 7.25” 1400W,Herramientas Eléctricas,72999,94999,Bauker,"Sierra circular de 1400W con disco de 185mm, profundidad de corte ajustable y guía paralela.",12,0,🪚,1;5;6
+5,Lijadora Orbital 300W,Herramientas Eléctricas,29999,39999,Bauker,"Lijadora orbital de 300W con sistema de aspiración de polvo y base de 90x180mm.",27,0,🟫,4;29;30
+6,Caladora 650W,Herramientas Eléctricas,41999,54999,Bauker,"Caladora de 650W con velocidad variable, corte en bisel y soplador de viruta.",15,0,📐,4;1;25
+7,Rotomartillo SDS-Plus 800W,Herramientas Eléctricas,89999,119999,Bauker,"Rotomartillo SDS-Plus de 800W, 3 funciones (percutor, rotación, ambas) con maletín y mechas.",9,1,🔨,2;24;25
+8,Pistola de Calor 2000W,Herramientas Eléctricas,24999,32999,Bauker,"Pistola de calor de 2000W con dos niveles de temperatura, ideal para decapar pintura y termocontraíbles.",22,0,🔥,5;30;31
+9,Soldadora Inverter 200A,Máquinas,98999,134999,WeldPro,"Soldadora inverter de 200A, tecnología IGBT, liviana y portátil. Incluye máscara y cables.",14,1,⚡,33;34;35
+10,Compresor de Aire 50L 2HP,Máquinas,189999,239999,AirMax,"Compresor de aire de 50 litros y 2HP, presión máxima 8 bar. Ideal para pintura e inflado.",7,1,💨,11;29;34
+11,Hidrolavadora 1800W 135 bar,Máquinas,84999,109999,AquaForce,"Hidrolavadora de 1800W y 135 bar de presión, con lanza regulable y manguera de 5m.",16,0,🚿,10;36;28
+12,Generador Eléctrico 2.5KVA,Máquinas,329999,419999,PowerGen,"Grupo electrógeno a nafta de 2.5KVA, arranque manual, autonomía 8hs. Ideal para cortes de luz.",5,0,🔌,9;13;14
+13,Motosierra 52cc,Máquinas,124999,159999,ForestPro,"Motosierra a explosión 52cc con espada de 20”, arranque fácil y lubricación automática.",8,0,🌲,14;33;34
+14,Desmalezadora 43cc,Máquinas,99999,129999,ForestPro,"Desmalezadora a explosión 43cc, arnés doble, cabezal de tanza y disco 3 puntas incluidos.",11,0,🌿,13;37;33
+15,Mezcladora de Cemento 130L,Máquinas,259999,319999,BuildMix,"Hormigonera de 130 litros, motor 1/2HP, tambor reforzado y ruedas para traslado.",4,0,🛢️,27;28;26
+16,Juego Llaves Combinadas 8 pzs,Herramientas Manuales,18999,25999,ToolKit,"Juego de 8 llaves combinadas de 8 a 19mm en acero cromo vanadio. Incluye organizador.",40,0,🔧,17;19;22
+17,Set Destornilladores 6 pzs,Herramientas Manuales,9999,13999,ToolKit,"Set de 6 destornilladores (planos y Phillips) con mango ergonómico antideslizante.",55,0,🪛,16;3;23
+18,Martillo Carpintero 27mm,Herramientas Manuales,7999,10999,ToolKit,"Martillo de carpintero de 27mm con cabeza de acero forjado y mango de fibra antivibración.",38,0,🔨,19;23;26
+19,Pinza Universal 8”,Herramientas Manuales,8499,11499,ToolKit,"Pinza universal de 8” en acero cromo vanadio, con mango aislado y filo para corte.",44,0,🗜️,16;17;20
+20,Nivel de Aluminio 60cm,Herramientas Manuales,11999,15999,ToolKit,"Nivel de aluminio de 60cm con 3 burbujas (horizontal, vertical y 45°). Bases magnéticas.",26,0,📏,21;18;27
+21,Cinta Métrica 5m,Herramientas Manuales,4999,6999,ToolKit,"Cinta métrica de 5m con traba automática, clip para cinturón y carcasa engomada.",60,1,📐,20;16;18
+22,Juego Llaves Allen 9 pzs,Herramientas Manuales,5999,8499,ToolKit,"Juego de 9 llaves Allen hexagonales de 1.5 a 10mm en acero, con soporte plegable.",48,0,🔑,16;17;3
+23,Caja Tornillos Mixtos 500 pzs,Fijaciones,12999,16999,FixPro,"Surtido de 500 tornillos mixtos (madera y metal) en organizador de 5 compartimentos.",33,0,🔩,24;25;17
+24,Tarugos Fischer S6 x100,Fijaciones,3999,5499,Fischer,"Pack de 100 tarugos Fischer S6 para fijaciones en pared. Compatibles con tornillos 3.5-5mm.",70,0,🧱,23;25;2
+25,Set Mechas Metal/Madera 19 pzs,Fijaciones,8999,12999,FixPro,"Juego de 19 mechas para metal y madera de 1 a 10mm en acero HSS, con estuche metálico.",29,1,🦴,2;7;23
+26,Carretilla Reforzada 90L,Construcción,64999,82999,BuildPro,"Carretilla reforzada de 90 litros, batea de chapa, rueda neumática y patas reforzadas.",6,0,🛒,27;28;15
+27,Cuchara de Albañil 8”,Construcción,5999,7999,BuildPro,"Cuchara de albañil de 8” con hoja de acero templado y mango de madera ergonómico.",35,0,🧱,28;26;18
+28,Balde Albañil 20L Reforzado,Construcción,2999,3999,BuildPro,"Balde de albañil de 20 litros reforzado, plástico de alta resistencia y manija metálica.",80,0,🪣,27;26;11
+29,Rodillo Antigota 22cm + Bandeja,Pinturería,6499,8999,ColorMax,"Kit de rodillo antigota de 22cm con mango y bandeja. Ideal para látex y esmaltes.",42,0,🎨,30;31;5
+30,Pincel Profesional 2”,Pinturería,2499,3499,ColorMax,"Pincel profesional de 2” con cerda sintética, ideal para esmaltes y barnices. No suelta pelo.",65,0,🖌️,29;31;8
+31,Cinta de Papel 36mm x40m,Pinturería,3499,4999,ColorMax,"Cinta de papel de enmascarar 36mm x 40m, fácil remoción sin dejar residuos.",58,0,📎,29;30;20
+32,Casco de Seguridad,Seguridad,6999,9499,SafeWork,"Casco de seguridad con arnés regulable de 6 puntos, certificado IRAM. Disponible en amarillo.",47,0,⛑️,33;34;35
+33,Guantes Anticorte (par),Seguridad,3999,5499,SafeWork,"Guantes anticorte nivel 5, palma recubierta para mejor agarre. Talle universal.",90,0,🧤,32;34;35
+34,Antiparras de Protección,Seguridad,2999,3999,SafeWork,"Antiparras de protección con lente antiempañante y patillas regulables. Certificadas.",75,1,🥽,33;35;32
+35,Protector Auditivo,Seguridad,4499,5999,SafeWork,"Protector auditivo tipo copa, atenuación 27dB, vincha ajustable y acolchada.",52,0,🎧,34;33;32
+36,Manguera Reforzada 20m,Jardín,15999,21999,GreenGarden,"Manguera reforzada de 20m con malla anti-torsión, incluye conectores rápidos y pistola.",19,0,🪢,37;11;28
+37,Tijera de Podar 8”,Jardín,7499,9999,GreenGarden,"Tijera de podar de 8” con hoja de acero al carbono, mango ergonómico y traba de seguridad.",28,0,✂️,36;14;33

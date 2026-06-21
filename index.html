@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo Máquinas — Herramientas y máquinas al mejor precio</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/logo.jpg">
+</head>
+<body>
+  <div id="app-header"></div>
+
+  <!-- Banner / carrusel (solo en home sin filtros) -->
+  <section class="hero" id="hero">
+    <div class="hero-carousel">
+      <div class="hero-track" id="hero-track">
+
+        <!-- Slide 1: principal -->
+        <div class="hero-slide slide-default">
+          <div class="container">
+            <h1>Las mejores <span>herramientas y máquinas</span> al precio más bajo</h1>
+            <p>Más de 30 productos con stock permanente, envío a todo el país y hasta 6 cuotas sin interés.</p>
+            <div class="hero-btns">
+              <a href="#catalogo" class="btn btn-primary">🛒 Ver catálogo</a>
+              <a href="#ofertas" class="btn btn-ghost">🔥 Ofertas de la semana</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: Mes del Padre -->
+        <div class="hero-slide slide-padre">
+          <div class="container">
+            <span class="hero-tag">🎁 Mes del Padre</span>
+            <h1>Regalale lo que <span>de verdad le sirve</span></h1>
+            <p>Encontrá la herramienta ideal para papá. Usá el cupón <b>PAPA15</b> y llevate 15% de descuento.</p>
+            <div class="hero-btns">
+              <a href="#catalogo" class="btn btn-primary">🎁 Ver regalos</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3: Mundial -->
+        <div class="hero-slide slide-mundial">
+          <div class="container">
+            <span class="hero-tag">⚽ Mundial de Fútbol</span>
+            <h1>10% OFF en <span>toda la tienda</span></h1>
+            <p>Festejamos el Mundial con vos. Cargá tu carrito y usá el cupón <b>MUNDIAL10</b>.</p>
+            <div class="hero-btns">
+              <a href="#catalogo" class="btn btn-primary">⚽ Aprovechar ahora</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4: Publicidad Bosch -->
+        <div class="hero-slide slide-bosch">
+          <div class="container">
+            <span class="hero-tag">🔧 Destacado del mes</span>
+            <h1>Taladro Bosch <span>GSB 18V-65</span></h1>
+            <p>Potencia profesional con motor brushless y tecnología alemana. Para los trabajos más exigentes.</p>
+            <div class="hero-btns">
+              <a href="product.html?id=1" class="btn btn-primary">Ver producto Bosch →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <button class="hero-arrow prev" onclick="heroMover(-1)" aria-label="Anterior">‹</button>
+      <button class="hero-arrow next" onclick="heroMover(1)" aria-label="Siguiente">›</button>
+      <div class="hero-dots" id="hero-dots"></div>
+    </div>
+  </section>
+
+  <!-- Beneficios -->
+  <section class="beneficios">
+    <div class="container">
+      <div class="beneficio"><span class="b-ico">🚚</span><div><b>Envío a todo el país</b><span>Gratis desde $120.000</span></div></div>
+      <div class="beneficio"><span class="b-ico">💳</span><div><b>6 cuotas sin interés</b><span>Con todas las tarjetas</span></div></div>
+      <div class="beneficio"><span class="b-ico">🏷️</span><div><b>Precios bajos siempre</b><span>Liderazgo en costos</span></div></div>
+      <div class="beneficio"><span class="b-ico">🏪</span><div><b>Retiro en local</b><span>Sin costo en Longchamps</span></div></div>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- Ofertas destacadas -->
+    <section class="section" id="ofertas">
+      <div class="section-head">
+        <div><h2>🔥 Ofertas destacadas</h2><div class="sub">Los productos de mayor rotación, al mejor precio</div></div>
+        <a href="#catalogo" class="ver-todo">Ver todo →</a>
+      </div>
+      <div id="destacados"><div class="loader"><div class="spinner"></div>Cargando ofertas...</div></div>
+    </section>
+
+    <!-- Catálogo completo -->
+    <section class="section" id="catalogo">
+      <div class="section-head">
+        <div><h2 id="cat-titulo">Catálogo completo</h2><div class="sub" id="cat-sub">Explorá toda nuestra variedad</div></div>
+      </div>
+      <div class="toolbar">
+        <div class="chips" id="chips"></div>
+        <div class="toolbar-right">
+          <div class="precio-filtro">
+            <span>Precio:</span>
+            <input type="number" id="precio-min" placeholder="mín" min="0" oninput="aplicarPrecio()">
+            <span>—</span>
+            <input type="number" id="precio-max" placeholder="máx" min="0" oninput="aplicarPrecio()">
+          </div>
+          <select id="orden">
+            <option value="rel">Ordenar por: relevancia</option>
+            <option value="precio-asc">Menor precio</option>
+            <option value="precio-desc">Mayor precio</option>
+            <option value="off">Mayor descuento</option>
+            <option value="nombre">Nombre A-Z</option>
+          </select>
+          <span class="result-count" id="result-count"></span>
+        </div>
+      </div>
+      <div id="catalogo-grid"><div class="loader"><div class="spinner"></div>Cargando catálogo...</div></div>
+    </section>
+  </main>
+
+  <div id="app-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

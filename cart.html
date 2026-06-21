@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito — Todo Máquinas</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/logo.jpg">
+</head>
+<body>
+  <div id="app-header"></div>
+  <main class="container">
+    <div class="breadcrumb"><a href="index.html">Inicio</a> › Carrito de compras</div>
+    <h2 style="margin-bottom:22px">🛒 Tu carrito</h2>
+    <div id="carrito"><div class="loader"><div class="spinner"></div>Cargando carrito...</div></div>
+
+    <section class="section" id="cross-sec" style="display:none">
+      <div class="section-head">
+        <div><h2>➕ Completá tu compra</h2><div class="sub">Productos que combinan con lo que estás llevando</div></div>
+      </div>
+      <div id="cross"></div>
+    </section>
+  </main>
+  <div id="app-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/cartpage.js"></script>
+</body>
+</html>
