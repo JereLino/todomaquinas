@@ -4,7 +4,7 @@ Tienda online (e-commerce) para la ferretería **Todo Máquinas**, estilo Tienda
 Proyecto académico: todo funciona, pero **pagos y envíos son simulados (mock)**.
 
 **Autor:** Jeremías Pascolo — jeremiaspascolo@yahoo.com.ar
-**Sitio en vivo:** https://matiaszacagnino-personal.github.io/todomaquinas/
+**Sitio en vivo:** https://jerelino.github.io/todomaquinas/
 
 Modelo de negocio: **liderazgo en costos y alta rotación** → la UI prioriza precios bajos,
 descuentos visibles, "últimas unidades", envío gratis por monto y **cross-selling** (venta cruzada).
