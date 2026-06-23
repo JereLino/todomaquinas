@@ -323,6 +323,7 @@ const SECCIONES = {
 };
 
 const ORDEN_NAV = [
+  ['presentacion', '📊 Presentación del proyecto'],
   ['nosotros', '🏢 Nosotros'],
   ['promociones', '🎁 Promociones del mes'],
   ['contacto', '📞 Contacto'],
