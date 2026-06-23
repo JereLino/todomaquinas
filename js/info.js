@@ -147,14 +147,14 @@ const SECCIONES = {
         <h2>💻 La solución: El viaje técnico</h2>
         <p><b>El código se convirtió en el superpoder.</b> No construimos una tienda online cualquiera. Construimos un sistema que:</p>
         <ul>
-          <li><b>Scrappea Easy.com.ar</b> para traer 113 productos REALES con fotos verdaderas. Cada noche, actualizamos automáticamente. No es un catálogo estático: es un reflejo vivo del negocio.</li>
-          <li><b>Parsea CSV con precisión quirúrgica</b> en JavaScript vanilla. Sin dependencias, sin bloat. Solo la máquina y el código.</li>
+          <li><b>Se nutre de una base de datos CSV</b> con los 113 productos REALES de la ferretería: nombre, precio, marca, descripción y <b>stock real</b> de cada artículo. Actualizar el catálogo es tan simple como editar la planilla.</li>
+          <li><b>Parsea ese CSV con precisión quirúrgica</b> en JavaScript vanilla. Sin dependencias, sin bloat. Solo la máquina y el código.</li>
           <li><b>Guarda todo en el navegador del usuario</b> (localStorage). El carrito viaja con vos, persiste aunque cierres la pestaña. Tecnología invisible, experiencia mágica.</li>
           <li><b>Valida datos con algoritmo Luhn</b> para tarjetas. Porque la confianza no se improvisa: se construye con detalles correctos.</li>
           <li><b>Genera fallbacks visuales dinámicos</b> en SVG si una foto falla. La experiencia nunca se quiebra.</li>
           <li><b>Crea un tour guiado interactivo</b> que ilumina cada rincón de la tienda. Porque el primer usuario necesita entender dónde está parado.</li>
         </ul>
-        <p>Stack: <b>Python + JavaScript vanilla + Git</b>. Bajo complejidad, máximo impacto. Cada línea tiene un propósito.</p>
+        <p>Stack: <b>JavaScript vanilla + base de datos CSV + Git</b>. Bajo complejidad, máximo impacto. Cada línea tiene un propósito.</p>
       </div>
 
       <div class="ppt-slide">
@@ -187,7 +187,7 @@ const SECCIONES = {
             <div><b style="font-size:1.4rem;color:var(--teal-osc)">11</b><br><span style="font-size:.9rem;color:var(--gris-700)">pasos del tour</span></div>
             <div><b style="font-size:1.4rem;color:var(--teal-osc)">0</b><br><span style="font-size:.9rem;color:var(--gris-700)">frameworks externos</span></div>
           </div>
-          <p style="font-size:.9rem;color:var(--gris-700);margin:0"><b>Stack elegido:</b> HTML/CSS/JavaScript vanilla, Python para scraping, Git para versionado. Simplicidad radical, poder máximo.</p>
+          <p style="font-size:.9rem;color:var(--gris-700);margin:0"><b>Stack elegido:</b> HTML/CSS/JavaScript vanilla, base de datos CSV con el stock real, Git para versionado. Simplicidad radical, poder máximo.</p>
         </div>
       </div>
 
