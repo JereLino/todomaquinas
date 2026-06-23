@@ -110,6 +110,149 @@ const SECCIONES = {
       <h2>Plazos de despacho</h2>
       <p>Despachamos los pedidos dentro de las 24/48 hs hábiles posteriores a la acreditación del pago.</p>`
   },
+  'presentacion': {
+    titulo: 'Presentación del Proyecto',
+    html: `
+      <div class="ppt-intro">
+        <div class="ppt-slide">
+          <h2>📊 Todo Máquinas — Tienda Online</h2>
+          <p style="font-size:1.1rem;color:var(--teal-osc);font-weight:600">Un proyecto académico que lleva la ferretería al mundo digital</p>
+        </div>
+      </div>
+
+      <div class="ppt-slide">
+        <h2>🎯 La idea</h2>
+        <p><b>Problema:</b> Todo Máquinas OK es una ferretería de Longchamps con excelentes precios y stock. Sin embargo, solo vende en el local físico, limitando su mercado a la zona.</p>
+        <p><b>Solución:</b> Crear una tienda online moderna que permita vender 24/7, llegar a clientes de todo el país y mantener el modelo de negocio: <b>liderazgo en costos y alta rotación</b>.</p>
+        <p><b>Resultado:</b> Una plataforma web que replica la ferretería con catálogo completo, pagos seguros, envíos a todo el país y experiencia simple.</p>
+      </div>
+
+      <div class="ppt-slide">
+        <h2>🛍️ El trabajo realizado</h2>
+        <ul>
+          <li><b>Catálogo:</b> 113 productos reales con fotos, organizados en 10 categorías (Herramientas Eléctricas, Máquinas, Sanitarios, Electricidad, etc.)</li>
+          <li><b>Búsqueda:</b> Buscador predictivo con sugerencias mientras escribís</li>
+          <li><b>Filtros:</b> Por categoría, precio y orden (relevancia, precio, descuento)</li>
+          <li><b>Carrito:</b> Persistente en el navegador, cupones de descuento, envío gratis desde $120.000</li>
+          <li><b>Checkout:</b> Opciones de retiro en local, envío estándar o express, múltiples formas de pago</li>
+          <li><b>Asistente:</b> Marito, un chatbot que recomienda herramientas según tu proyecto ("colgar un estante", "pintar el living", etc.)</li>
+          <li><b>Información:</b> Páginas legales, misión/visión, promociones, cómo comprar, FAQ</li>
+          <li><b>Tour guiado:</b> Recorrido interactivo de 11 pasos para nuevos usuarios</li>
+        </ul>
+      </div>
+
+      <div class="ppt-slide">
+        <h2>🛠️ Stack tecnológico</h2>
+        <p><b>Frontend:</b> HTML / CSS / JavaScript vanilla (sin frameworks)</p>
+        <p><b>Almacenamiento de datos:</b> CSV con 113 productos (nombre, categoría, precio, marca, descripción, stock, emoji, imagen, relacionados)</p>
+        <p><b>Parser CSV:</b> Parser robusto en JavaScript que maneja comillas y caracteres especiales</p>
+        <p><b>Imágenes:</b> 113 fotos reales descargadas de la API VTEX de Easy.com.ar</p>
+        <p><b>Fallback visual:</b> SVG dinámico por categoría si la imagen no carga</p>
+        <p><b>Persistencia:</b> localStorage para carrito, cupones aplicados, preferencias del usuario</p>
+        <p><b>Servidor:</b> Python HTTP server para desarrollo (sin backend propio)</p>
+      </div>
+
+      <div class="ppt-slide">
+        <h2>🔗 Cómo se conectaron las piezas</h2>
+        <div class="ppt-flow">
+          <div class="ppt-flow-item">
+            <strong>data.js</strong>
+            <span>Carga el CSV, parsea productos, genera helpers globales (precioARS, descuento, imgSrc)</span>
+          </div>
+          <div class="ppt-flow-item">
+            <strong>ui.js</strong>
+            <span>Header/footer/componentes compartidos, buscador predictivo, Marito chatbot, tour guiado</span>
+          </div>
+          <div class="ppt-flow-item">
+            <strong>home.js</strong>
+            <span>Catálogo con filtros, orden y rango de precio</span>
+          </div>
+          <div class="ppt-flow-item">
+            <strong>cart.js</strong>
+            <span>Carrito en localStorage, cupones, cálculo de envío gratis</span>
+          </div>
+          <div class="ppt-flow-item">
+            <strong>checkout.js</strong>
+            <span>Formulario con validaciones (email, DNI, tarjeta Luhn), opciones de envío/pago, confirmación</span>
+          </div>
+          <div class="ppt-flow-item">
+            <strong>product.js</strong>
+            <span>Ficha de producto con foto, precio, cuotas, cross-selling</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ppt-slide">
+        <h2>🎬 POC y features completadas</h2>
+        <h3>MVP (Versión 1 — Funcional)</h3>
+        <ul>
+          <li>✅ Carrusel de banners con autoplay</li>
+          <li>✅ Catálogo 37 productos iniciales con búsqueda y filtros</li>
+          <li>✅ Ficha de producto con cross-selling</li>
+          <li>✅ Carrito con cupones</li>
+          <li>✅ Checkout simulado (sin transacciones reales)</li>
+          <li>✅ Marito chatbot por reglas</li>
+          <li>✅ Páginas legales y de información</li>
+          <li>✅ Deploy en GitHub Pages</li>
+        </ul>
+      </div>
+
+      <div class="ppt-slide">
+        <h2>🚀 Versión 2 — Ampliación y experiencia</h2>
+        <h3>Catálogo ampliado</h3>
+        <ul>
+          <li>✅ 37 → 113 productos reales (3x más variedad)</li>
+          <li>✅ +2 categorías nuevas: Sanitarios (13) y Electricidad (11)</li>
+          <li>✅ Más productos en categorías existentes para mejor búsqueda</li>
+        </ul>
+        <h3>Tour guiado interactivo</h3>
+        <ul>
+          <li>✅ 11 pasos que iluminan elementos reales (spotlight)</li>
+          <li>✅ Auto-aparece en la 1ª visita, recordado en el navegador</li>
+          <li>✅ Accesible desde botón en el footer</li>
+          <li>✅ Deep-linkeable: <code>?tour=5</code> abre en paso 5</li>
+          <li>✅ Responsive en celular, cierra con Escape</li>
+        </ul>
+      </div>
+
+      <div class="ppt-slide">
+        <h2>🎨 Marca y diseño</h2>
+        <p><b>Paleta:</b> Teal (#1FA8BE) + Amarillo (#F4C61E) + Gris (#2b2b2b), tomados del logo original de la ferretería.</p>
+        <p><b>Tipografía:</b> Sistema nativo del navegador (Segoe UI, Roboto, sans-serif) para máximo rendimiento.</p>
+        <p><b>Responsive:</b> Optimizado para desktop, tablet y celular.</p>
+        <p><b>Accesibilidad:</b> Validaciones claras, mensajes de error por campo, alternativas de imagen SVG generadas dinámicamente.</p>
+      </div>
+
+      <div class="ppt-slide">
+        <h2>📱 Experiencia de usuario</h2>
+        <ul>
+          <li><b>Búsqueda predictiva:</b> Sugiere mientras escribís, mostrando foto y precio</li>
+          <li><b>Cupones:</b> PAPA15 (15%), FERRE15, TODO10, BIENVENIDO, MUNDIAL10, etc.</li>
+          <li><b>Envío gratis:</b> Desde $120.000 en envío estándar o retiro sin cargo en local</li>
+          <li><b>Cuotas:</b> Hasta 6 cuotas sin interés con todas las tarjetas</li>
+          <li><b>Marito:</b> Escribile "colgar estante" o "pintar" y te recomienda herramientas</li>
+          <li><b>Contacto directo:</b> WhatsApp, teléfono e Instagram siempre a mano</li>
+          <li><b>Tour guiado:</b> Para nuevos usuarios, explica cada sección en 11 pasos</li>
+        </ul>
+      </div>
+
+      <div class="ppt-slide">
+        <h2>🌐 Despliegue y actualización</h2>
+        <p><b>Plataforma:</b> GitHub Pages (https://jerelino.github.io/todomaquinas/)</p>
+        <p><b>Redeploy automático:</b> ~30 segundos al hacer push a la rama main</p>
+        <p><b>Refresh de catálogo:</b> Script Python que scrappea Easy.com.ar y regenera CSV + fotos en 1 comando</p>
+        <p><b>Versionado:</b> Git con commits descriptivos para cada feature</p>
+      </div>
+
+      <div class="ppt-slide" style="background:var(--teal-claro);text-align:center;padding:40px">
+        <h2 style="font-size:1.6rem;margin-bottom:16px">✨ Resultado final</h2>
+        <p style="font-size:1.1rem;color:var(--teal-osc)"><b>Una tienda online moderna, rápida y fácil de usar</b></p>
+        <p style="margin-top:20px;color:var(--gris-700)">Que respeta el modelo de negocio de liderazgo en costos y alta rotación, permitiendo a Todo Máquinas vender a todo el país 24/7.</p>
+        <p style="margin-top:24px">🎓 <b>Proyecto académico completado</b></p>
+      </div>
+    `
+  },
+
   'pagos': {
     titulo: 'Medios y link de pago',
     html: `${DEMO}
