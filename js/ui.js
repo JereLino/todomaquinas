@@ -66,6 +66,7 @@ function renderHeader(activo = '') {
   actualizarBadge();
   renderFloatingContact();
   renderChatbot();
+  renderTour();
 
   // si venimos con búsqueda en la URL, reflejarla en el input
   const q = new URLSearchParams(location.search).get('q');
@@ -129,6 +130,11 @@ function sugerirBusqueda(valor) {
 document.addEventListener('click', e => {
   const w = e.target.closest('.search-wrap');
   if (!w) document.getElementById('search-suggest')?.classList.remove('open');
+});
+
+// Cerrar el recorrido guiado con Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && document.getElementById('tour-ov')?.classList.contains('open')) cerrarTour();
 });
 
 /* ===== Asistente / Chatbot mockeado ===== */
@@ -332,6 +338,177 @@ function chatEnviar(e) {
   return false;
 }
 
+/* ===== Recorrido guiado interactivo (spotlight sobre la página real) ===== */
+// Cada paso apunta a un elemento real del home. `sel` = selector; si no existe, se saltea.
+const TOUR_STEPS = [
+  { sel: null, centro: true, ico: '👋', titulo: '¡Bienvenido a Todo Máquinas!',
+    txt: 'Te muestro la tienda paso a paso, marcando cada parte de la página. Dale a <b>Siguiente</b> para arrancar (o cerrá con la ✕ cuando quieras).' },
+  { sel: '.search-wrap', ico: '🔍', titulo: 'Buscador',
+    txt: 'Escribí acá un <b>producto</b>, una <b>marca</b> o lo que vayas a hacer. Mientras tipeás aparecen sugerencias con foto y precio.' },
+  { sel: '.nav-promos', ico: '🎁', titulo: 'Promociones del mes',
+    txt: 'Acá juntamos todas las <b>ofertas vigentes</b> y los <b>cupones de descuento</b> para que pagues menos.' },
+  { sel: '#ofertas', ico: '🔥', titulo: 'Ofertas destacadas',
+    txt: 'Los productos de <b>mayor rotación</b> al mejor precio. Mirá las rebajas del momento apenas entrás.' },
+  { sel: '#chips', ico: '🗂️', titulo: 'Categorías',
+    txt: 'Filtrá el catálogo por rubro: Herramientas, Máquinas, <b>Sanitarios</b>, <b>Electricidad</b> y más. Tocá un chip para ver solo esa categoría.' },
+  { sel: '.toolbar-right', ico: '⚙️', titulo: 'Ordenar y filtrar',
+    txt: 'Ordená por <b>precio</b> o <b>descuento</b> y acotá por <b>rango de precio</b> para encontrar justo lo que buscás.' },
+  { sel: '#catalogo-grid', ico: '🛍️', titulo: 'Todo el catálogo',
+    txt: 'Más de 100 productos reales con foto. Tocá cualquiera para ver su <b>ficha</b>, fotos y agregarlo al carrito.' },
+  { sel: '.cart-btn', ico: '🛒', titulo: 'Tu carrito',
+    txt: 'Lo que sumes queda guardado acá (aunque cierres la página). Desde el carrito aplicás <b>cupones</b> y vas al <b>pago</b>.' },
+  { sel: '#chat-launcher', ico: '🤖', titulo: 'Consultá a Marito',
+    txt: 'Nuestro asistente. Contale tu proyecto («colgar un estante», «pintar el living») y te recomienda las <b>herramientas justas</b>.' },
+  { sel: '#float-contact', ico: '📞', titulo: 'Contacto directo',
+    txt: '<b>WhatsApp</b>, <b>Instagram</b> y teléfono siempre a mano para sacarte cualquier duda al toque.' },
+  { sel: '.footer', ico: '📍', titulo: 'Info y dónde estamos',
+    txt: 'Legales, medios de pago, horarios y el <b>Street View</b> de nuestro local en Longchamps. ¡Listo, ya conocés la tienda!' },
+];
+
+let _tourIdx = 0, _tourEnPantalla = false, _tourEl = null, _tourRAF = null;
+const _esHome = () => !!document.getElementById('chips');
+
+function renderTour() {
+  if (document.getElementById('tour-ov')) return;
+  const ov = document.createElement('div');
+  ov.id = 'tour-ov';
+  ov.className = 'tour-ov';
+  ov.innerHTML = `
+    <div class="tour-catch"></div>
+    <div class="tour-spot" id="tour-spot"></div>
+    <div class="tour-pop" id="tour-pop" role="dialog" aria-modal="true" aria-label="Recorrido guiado">
+      <button class="tour-x" onclick="cerrarTour()" aria-label="Cerrar recorrido">✕</button>
+      <div class="tour-pop-head"><span class="tour-ico" id="tour-ico"></span><h3 class="tour-titulo" id="tour-titulo"></h3></div>
+      <p class="tour-txt" id="tour-txt"></p>
+      <div class="tour-dots" id="tour-dots"></div>
+      <div class="tour-nav">
+        <button class="tour-prev" id="tour-prev" onclick="tourMover(-1)">← Anterior</button>
+        <span class="tour-cont" id="tour-cont"></span>
+        <button class="tour-next" id="tour-next" onclick="tourMover(1)">Siguiente →</button>
+      </div>
+    </div>`;
+  document.body.appendChild(ov);
+  ov.querySelector('.tour-catch').addEventListener('click', cerrarTour);
+  window.addEventListener('resize', () => { if (_tourEnPantalla) posicionarTour(); });
+  window.addEventListener('scroll', () => { if (_tourEnPantalla) posicionarTour(); }, { passive: true });
+
+  // Arranque automático: primera visita, o si venimos redirigidos con ?tour=N
+  const param = new URLSearchParams(location.search).get('tour');
+  const pedido = param !== null;
+  if (_esHome() && (pedido || !localStorage.getItem('tm_tour_visto'))) {
+    const inicio = parseInt(param, 10) - 1;  // ?tour=5 → empieza en el paso 5
+    setTimeout(() => abrirTour(inicio > 0 ? inicio : 0), pedido ? 400 : 1100);
+  }
+}
+
+function abrirTour(inicio = 0) {
+  // El recorrido interactivo vive en el home; desde otra página, redirigimos allá
+  if (!_esHome()) { location.href = 'index.html?tour=1'; return; }
+  const ov = document.getElementById('tour-ov');
+  if (!ov) return;
+  _tourIdx = (typeof inicio === 'number' && inicio >= 0 && inicio < TOUR_STEPS.length) ? inicio : 0;
+  _tourEnPantalla = true;
+  ov.classList.add('open');
+  mostrarPaso();
+}
+
+function cerrarTour() {
+  document.getElementById('tour-ov')?.classList.remove('open');
+  cancelAnimationFrame(_tourRAF);
+  _tourEnPantalla = false;
+  _tourEl = null;
+  localStorage.setItem('tm_tour_visto', '1');
+  if (new URLSearchParams(location.search).get('tour')) {
+    history.replaceState(null, '', location.pathname);
+  }
+}
+
+function tourMover(d) {
+  const next = _tourIdx + d;
+  if (next < 0) return;
+  if (next >= TOUR_STEPS.length) { cerrarTour(); return; }
+  _tourIdx = next;
+  mostrarPaso();
+}
+
+function tourIr(n) { _tourIdx = n; mostrarPaso(); }
+
+function mostrarPaso() {
+  const s = TOUR_STEPS[_tourIdx];
+  const ultimo = _tourIdx === TOUR_STEPS.length - 1;
+  const el = s.sel ? document.querySelector(s.sel) : null;
+
+  // Si el elemento de este paso no existe, lo salteamos
+  if (s.sel && !el) {
+    if (_tourIdx < TOUR_STEPS.length - 1) { _tourIdx++; mostrarPaso(); }
+    else cerrarTour();
+    return;
+  }
+  _tourEl = el;
+
+  // Contenido del cartelito
+  document.getElementById('tour-ico').textContent = s.ico;
+  document.getElementById('tour-titulo').textContent = s.titulo;
+  document.getElementById('tour-txt').innerHTML = s.txt;
+  document.getElementById('tour-cont').textContent = `${_tourIdx + 1} de ${TOUR_STEPS.length}`;
+  document.getElementById('tour-prev').style.visibility = _tourIdx === 0 ? 'hidden' : 'visible';
+  document.getElementById('tour-next').innerHTML = ultimo ? '¡Listo! 🚀' : 'Siguiente →';
+  document.getElementById('tour-dots').innerHTML = TOUR_STEPS
+    .map((_, i) => `<button class="tour-dot ${i === _tourIdx ? 'active' : ''}" onclick="tourIr(${i})" aria-label="Paso ${i + 1}"></button>`)
+    .join('');
+
+  cancelAnimationFrame(_tourRAF);
+  if (el) {
+    // Scroll instantáneo (confiable): el deslizamiento visual lo da la transición
+    // CSS del recuadro de foco, que glidea de un elemento al siguiente.
+    el.scrollIntoView({ behavior: 'auto', block: 'center' });
+    // Reposicionamos unos cuantos cuadros por si el layout aún se acomoda (imágenes, etc.)
+    seguirElemento(performance.now() + 400);
+  } else {
+    posicionarTour(); // paso de bienvenida: sin foco, cartelito centrado
+  }
+}
+
+function seguirElemento(hasta) {
+  posicionarTour();
+  if (_tourEnPantalla && performance.now() < hasta) {
+    _tourRAF = requestAnimationFrame(() => seguirElemento(hasta));
+  }
+}
+
+function posicionarTour() {
+  const spot = document.getElementById('tour-spot');
+  const pop = document.getElementById('tour-pop');
+  const vw = window.innerWidth, vh = window.innerHeight, gap = 14;
+
+  // Paso sin elemento (bienvenida): apagar spotlight y centrar el cartelito
+  if (!_tourEl) {
+    spot.classList.add('off');
+    pop.style.top = Math.max(gap, (vh - pop.offsetHeight) / 2) + 'px';
+    pop.style.left = Math.max(gap, (vw - pop.offsetWidth) / 2) + 'px';
+    return;
+  }
+
+  spot.classList.remove('off');
+  const r = _tourEl.getBoundingClientRect();
+  const pad = 6;
+  spot.style.top = (r.top - pad) + 'px';
+  spot.style.left = (r.left - pad) + 'px';
+  spot.style.width = (r.width + pad * 2) + 'px';
+  spot.style.height = (r.height + pad * 2) + 'px';
+
+  // Ubicar el cartelito: preferimos abajo del elemento; si no entra, arriba; si no, al costado/centro
+  const ph = pop.offsetHeight, pw = pop.offsetWidth;
+  let top;
+  if (r.bottom + gap + ph <= vh) top = r.bottom + gap;
+  else if (r.top - gap - ph >= 0) top = r.top - gap - ph;
+  else top = Math.max(gap, Math.min(vh - ph - gap, r.top));
+  let left = r.left + r.width / 2 - pw / 2;
+  left = Math.max(gap, Math.min(left, vw - pw - gap));
+  pop.style.top = top + 'px';
+  pop.style.left = left + 'px';
+}
+
 function renderFooter() {
   const cont = document.getElementById('app-footer');
   if (!cont) return;
@@ -369,6 +546,9 @@ function renderFooter() {
         <li><a href="info.html?seccion=terminos">Términos y condiciones</a></li>
         <li><a href="https://www.argentina.gob.ar/produccion/defensadelconsumidor" target="_blank" rel="noopener">Defensa del Consumidor</a></li>
       </ul>
+      <button class="foot-tour" onclick="abrirTour()" title="Recorrido guiado por la tienda">
+        🧭 ¿Primera vez acá? <b>Hacé el recorrido guiado</b>
+      </button>
     </div>
 
     <!-- Compra y envíos -->

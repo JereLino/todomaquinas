@@ -112,6 +112,8 @@ const COLORES_CAT = {
   'Pinturería':             ['#1a4a3a', '#34d399'],
   'Seguridad':              ['#7a1020', '#ff6b6b'],
   'Jardín':                 ['#14401a', '#7bd957'],
+  'Sanitarios':             ['#0e3a4a', '#3fc7e0'],
+  'Electricidad':           ['#2a2410', '#ffd633'],
 };
 
 /* Devuelve la foto real si existe; si no, el placeholder SVG */
