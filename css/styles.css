@@ -265,7 +265,7 @@ button{font-family:inherit;cursor:pointer;border:none}
 .breadcrumb a:hover{color:var(--teal-osc)}
 .product{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
 .product .gallery{background:var(--blanco);border-radius:var(--radio);box-shadow:var(--sombra);padding:24px;position:sticky;top:90px}
-.product .gallery img{width:100%;border-radius:8px}
+.product .gallery img{width:100%;aspect-ratio:1;object-fit:contain;border-radius:8px}
 .product .info .marca{color:var(--gris-500);text-transform:uppercase;letter-spacing:.5px;font-weight:600;font-size:.8rem}
 .product .info h1{font-size:1.8rem;font-weight:800;margin:6px 0 10px}
 .product .rating{color:var(--amarillo-osc);font-size:.9rem;margin-bottom:18px}
