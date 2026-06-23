@@ -549,7 +549,7 @@ function renderFooter() {
       <button class="foot-tour" onclick="abrirTour()" title="Recorrido guiado por la tienda">
         🧭 ¿Primera vez acá? <b>Hacé el recorrido guiado</b>
       </button>
-      <a href="info.html?seccion=presentacion" style="display:inline-block;margin-top:14px;font-size:.85rem;background:var(--gris-300);color:var(--negro);padding:10px 14px;border-radius:8px;font-weight:600;transition:background .15s" onmouseover="this.style.background='var(--gris-500)'" onmouseout="this.style.background='var(--gris-300)'">
+      <a href="info.html?seccion=presentacion" class="foot-ppt" title="Ver presentación conceptual del proyecto">
         📊 Ver presentación del proyecto
       </a>
     </div>

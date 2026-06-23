@@ -508,6 +508,14 @@ button{font-family:inherit;cursor:pointer;border:none}
 .foot-tour b{color:var(--amarillo);display:block;font-size:.92rem}
 .foot-tour:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.3)}
 
+/* link "ver presentación" en el footer */
+.foot-ppt{
+  display:inline-block;margin-top:14px;padding:10px 14px;border-radius:10px;
+  font-size:.87rem;font-weight:700;color:var(--negro);background:var(--amarillo);
+  transition:all .15s;border:1px solid rgba(0,0,0,.08)
+}
+.foot-ppt:hover{background:var(--amarillo-osc);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.15)}
+
 /* ===== Recorrido guiado interactivo (spotlight) ===== */
 .tour-ov{position:fixed;inset:0;z-index:300;display:none}
 .tour-ov.open{display:block}
