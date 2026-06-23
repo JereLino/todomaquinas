@@ -115,17 +115,114 @@ const SECCIONES = {
     html: `
       <div class="ppt-intro">
         <div class="ppt-slide">
-          <h2>📊 Todo Máquinas — Tienda Online</h2>
-          <p style="font-size:1.1rem;color:var(--teal-osc);font-weight:600">Un proyecto académico que lleva la ferretería al mundo digital</p>
+          <h2>🔧 Todo Máquinas</h2>
+          <p style="font-size:1.1rem;color:var(--teal-osc);font-weight:600">La historia de cómo el código ayuda a la gente a construir sus sueños</p>
         </div>
       </div>
 
       <div class="ppt-slide">
-        <h2>🎯 La idea</h2>
-        <p><b>Problema:</b> Todo Máquinas OK es una ferretería de Longchamps con excelentes precios y stock. Sin embargo, solo vende en el local físico, limitando su mercado a la zona.</p>
-        <p><b>Solución:</b> Crear una tienda online moderna que permita vender 24/7, llegar a clientes de todo el país y mantener el modelo de negocio: <b>liderazgo en costos y alta rotación</b>.</p>
-        <p><b>Resultado:</b> Una plataforma web que replica la ferretería con catálogo completo, pagos seguros, envíos a todo el país y experiencia simple.</p>
+        <h2>🪫 La chispa: El origen</h2>
+        <p>En <b>Carlos Diehl 690, Longchamps</b>, existe un local donde vecinos, pintores, albañiles y soñadores llegan para encontrar la herramienta que necesitan. <b>Todo Máquinas OK</b> no es solo una ferretería: es un pilar del barrio.</p>
+        <p>Por más de una década, ha vivido del modelo que funciona: <b>precios que no mienten, stock que no falla, gente que te atiende de verdad</b>. Pero el mundo cambió. Los clientes quieren comprar a las 3 de la mañana. Quieren que llegue a Campana, a La Plata, a Tandil.</p>
+        <p>El problema no era la ferretería. <b>El problema era que la ferretería estaba atrapada en su barrio</b>, cuando podía estar en el país entero.</p>
       </div>
+
+      <div class="ppt-slide">
+        <h2>🎯 Misión y Visión</h2>
+        <h3>Misión</h3>
+        <p><b>Democratizar el acceso a herramientas y materiales de calidad.</b> No importa si sos un profesional o alguien que arregla su casa por primera vez: queremos que encuentres exactamente lo que necesitás, al mejor precio, sin barreras geográficas ni de horario.</p>
+        <h3>Visión</h3>
+        <p><b>Modernizar el comercio local sin perder su humanidad.</b> Imaginar un futuro donde las pequeñas ferreterías como Todo Máquinas compiten globalmente, llegan a millones, pero mantienen ese toque artesanal de atención que las hace especiales. Porque la tecnología no es el fin: es la herramienta para que el negocio humano crezca.</p>
+      </div>
+
+      <div class="ppt-slide">
+        <h2>⚡ Los desafíos: El conflicto</h2>
+        <p><b>El primer obstáculo fue brutal:</b> Gestionar stock en un local físico es complicado. Actualizar precios, coordinar con proveedores, mantener inventario de 113 productos diferentes... sin herramientas digitales es un acto de fe.</p>
+        <p><b>El segundo fue la geografía:</b> Una tienda online no basta. Necesitaba productos reales, precios reales, fotos reales. No placeholders de stock. ¿Cómo traer 113 productos de verdad a la plataforma sin morir en el intento?</p>
+        <p><b>El tercero fue técnico:</b> No hay presupuesto para frameworks complejos, servidores costosos, arquitecturas enterprise. Necesitábamos construir <b>con las manos limpias: HTML, CSS, JavaScript puro</b>. Sin lujos. Con ingenio.</p>
+        <p><b>Y el cuarto, el más humano:</b> ¿Cómo convencer a alguien que entra a comprar herramientas de que este lugar es confiable? ¿Cómo explicarle qué es un cupón, cómo pagar, cómo funciona el envío? <b>La tecnología no puede ser un muro: tiene que ser un puente.</b></p>
+      </div>
+
+      <div class="ppt-slide">
+        <h2>💻 La solución: El viaje técnico</h2>
+        <p><b>El código se convirtió en el superpoder.</b> No construimos una tienda online cualquiera. Construimos un sistema que:</p>
+        <ul>
+          <li><b>Scrappea Easy.com.ar</b> para traer 113 productos REALES con fotos verdaderas. Cada noche, actualizamos automáticamente. No es un catálogo estático: es un reflejo vivo del negocio.</li>
+          <li><b>Parsea CSV con precisión quirúrgica</b> en JavaScript vanilla. Sin dependencias, sin bloat. Solo la máquina y el código.</li>
+          <li><b>Guarda todo en el navegador del usuario</b> (localStorage). El carrito viaja con vos, persiste aunque cierres la pestaña. Tecnología invisible, experiencia mágica.</li>
+          <li><b>Valida datos con algoritmo Luhn</b> para tarjetas. Porque la confianza no se improvisa: se construye con detalles correctos.</li>
+          <li><b>Genera fallbacks visuales dinámicos</b> en SVG si una foto falla. La experiencia nunca se quiebra.</li>
+          <li><b>Crea un tour guiado interactivo</b> que ilumina cada rincón de la tienda. Porque el primer usuario necesita entender dónde está parado.</li>
+        </ul>
+        <p>Stack: <b>Python + JavaScript vanilla + Git</b>. Bajo complejidad, máximo impacto. Cada línea tiene un propósito.</p>
+      </div>
+
+      <div class="ppt-slide">
+        <h2>🎁 Características: Los superpoderes</h2>
+        <ul>
+          <li><b>Buscador predictivo:</b> Mientras escribís, ves fotos y precios. No es guessing; es precisión.</li>
+          <li><b>Filtros inteligentes:</b> Por categoría, precio, orden. El usuario siempre encuentra lo que busca.</li>
+          <li><b>Marito, el asistente:</b> Contale "quiero pintar el living" y te recomendará rodillo, pincel, cinta. Porque la venta no es un acto solitario: es conversación.</li>
+          <li><b>Carrito que no se olvida:</b> Hoy llenas el carrito. Mañana volvés. Sigue ahí, esperándote.</li>
+          <li><b>Cupones reales:</b> PAPA15, FERRE15, TODO10. Descuentos que importan.</li>
+          <li><b>Tour de bienvenida:</b> 11 pasos que iluminan la tienda. Para que nadie se pierda.</li>
+          <li><b>Checkout sin fricción:</b> Validaciones que ayudan, no que castigan. Errores claros, camino directo.</li>
+        </ul>
+      </div>
+
+      <div class="ppt-slide">
+        <h2>🌍 El impacto: El resultado</h2>
+        <p><b>Una ferretería de barrio ahora vende a todo el país 24/7.</b> No es fantasía: funciona.</p>
+        <p>Alguien en Campana que necesita un taladro a las 2 de la mañana puede comprar. Alguien en La Plata que quiere arreglar su baño puede ver precios y cupones. <b>La geografía dejó de ser una barrera.</b></p>
+        <p><b>Pero lo más importante:</b> cada visita, cada compra, cada proyecto que alguien realiza con una herramienta de Todo Máquinas es un hilo invisible que conecta a la gente con la ferretería.</p>
+        <p>La tecnología no vende. <b>Las personas venden.</b> La tecnología solo hace que sea más fácil conectar persona con persona, proyecto con herramienta, sueño con realidad.</p>
+      </div>
+
+      <div class="ppt-slide">
+        <h2>🛠️ El viaje técnico en números</h2>
+        <div style="background:var(--teal-claro);padding:24px;border-radius:12px;margin:16px 0">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+            <div><b style="font-size:1.4rem;color:var(--teal-osc)">113</b><br><span style="font-size:.9rem;color:var(--gris-700)">productos reales</span></div>
+            <div><b style="font-size:1.4rem;color:var(--teal-osc)">10</b><br><span style="font-size:.9rem;color:var(--gris-700)">categorías</span></div>
+            <div><b style="font-size:1.4rem;color:var(--teal-osc)">11</b><br><span style="font-size:.9rem;color:var(--gris-700)">pasos del tour</span></div>
+            <div><b style="font-size:1.4rem;color:var(--teal-osc)">0</b><br><span style="font-size:.9rem;color:var(--gris-700)">frameworks externos</span></div>
+          </div>
+          <p style="font-size:.9rem;color:var(--gris-700);margin:0"><b>Stack elegido:</b> HTML/CSS/JavaScript vanilla, Python para scraping, Git para versionado. Simplicidad radical, poder máximo.</p>
+        </div>
+      </div>
+
+      <div class="ppt-slide">
+        <h2>📈 Completitud del proyecto</h2>
+        <h3>Lo que entregamos (v1)</h3>
+        <ul style="font-size:.95rem">
+          <li>✅ Carrusel de banners con autoplay</li>
+          <li>✅ Catálogo browseable con búsqueda y filtros</li>
+          <li>✅ Ficha de producto detallada</li>
+          <li>✅ Carrito persistente con cupones</li>
+          <li>✅ Checkout con múltiples opciones de envío y pago</li>
+          <li>✅ Validaciones robustas (DNI, email, tarjeta Luhn, CVV)</li>
+          <li>✅ Marito, el asistente chatbot por reglas</li>
+          <li>✅ Páginas legales completas (aviso legal, cambios, privacidad, términos)</li>
+          <li>✅ Contacto directo (WhatsApp, teléfono, Instagram)</li>
+          <li>✅ Deploy en GitHub Pages (30 segundos redeploy)</li>
+        </ul>
+        <h3>Ampliación v2 (2026-06-23)</h3>
+        <ul style="font-size:.95rem">
+          <li>✅ Catálogo: 37 → 113 productos (3x más variedad)</li>
+          <li>✅ Categorías nuevas: Sanitarios + Electricidad</li>
+          <li>✅ Tour guiado interactivo con spotlight (11 pasos)</li>
+          <li>✅ Auto-aparece en 1ª visita, recordado en navegador</li>
+        </ul>
+      </div>
+
+      <div class="ppt-slide" style="background:var(--teal-claro);text-align:center;padding:40px">
+        <h2 style="font-size:1.8rem;margin-bottom:16px;color:var(--teal-osc)">✨ El cierre</h2>
+        <p style="font-size:1.05rem;color:var(--teal-osc);margin-bottom:24px"><b>Todo Máquinas es prueba de que la tecnología no compite con lo humano.</b></p>
+        <p style="color:var(--gris-700);margin-bottom:16px">Cuando un paintbrush es bueno, las manos del artista se vuelven mejores. Así funciona el código: amplifica lo que ya estaba ahí. Los precios bajos de la ferretería. La atención de verdad. El stock que no falla.</p>
+        <p style="color:var(--gris-700)"><b>Ahora viajan a todo el país en forma de 1s y 0s.</b></p>
+        <p style="margin-top:32px;font-size:.95rem;color:var(--teal-osc)">🎓 Proyecto académico completado<br>📍 Lonchamps, Buenos Aires<br>🚀 Publicado en GitHub Pages</p>
+      </div>
+    `
 
       <div class="ppt-slide">
         <h2>🛍️ El trabajo realizado</h2>
